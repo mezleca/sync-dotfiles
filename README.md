@@ -1,15 +1,7 @@
-# sync-dots
+## sync dotfiles
+small little tool to update my dotfiles using a very basic cli and bun
 
-To install dependencies:
-
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.2.21. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+## TODO
+- [ ] finish all of the actions
+- [ ] if target is a github repo: automatically commit
+- [ ] workflow to build stuff
