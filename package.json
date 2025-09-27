@@ -2,7 +2,10 @@
   "name": "sync-dots",
   "module": "src/index.ts",
   "type": "module",
-  "private": true,
+  "private": false,
+  "scripts": {
+    "build": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile build/sync-dots"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
