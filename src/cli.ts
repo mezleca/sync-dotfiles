@@ -16,14 +16,16 @@ export const show_menu = async (handle_action: Function) => {
         console.clear();
         console.log(`\n=== ${menu.name} ===\n`);
         
+        const choices = menu.choices ? Array.isArray(menu.choices) ?
+            menu.choices : await menu.choices() || [] : [];
+        
         const { option } = await inquirer.prompt([{
             type: "list",
             name: "option",
             message: menu.message,
-            choices: menu.choices
+            choices: choices
         }]) as { option: string };
         
-        // exit :+1:
         if (option == "exit") {
             console.clear();
             break;
@@ -34,13 +36,11 @@ export const show_menu = async (handle_action: Function) => {
             continue;
         }
         
-        // is it a submenu
         if (menu_data.has(option)) {
             menu_id = option;
             continue;
         }
         
-        // handle action
         await handle_action(option, menu);
     }
 };

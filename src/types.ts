@@ -16,8 +16,13 @@ export type MENU_DATA = {
     parent: string | null;
     name: string;
     message: string;
-    choices: Array<{ name: string; value: string }>;
+    choices: MenuChoice[] | (() => MenuChoice[] | Promise<MenuChoice[] | undefined>) | undefined;
 };
+
+export type MenuChoice = {
+    name: string;
+    value: string;
+}
 
 export type TreeNode = {
   name: string;
